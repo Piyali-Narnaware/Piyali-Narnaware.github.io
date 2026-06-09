@@ -93,7 +93,7 @@
     }
     .kpi-card {
       text-align: center; padding: 12px 8px; position: relative;
-      transition: transform .2s;
+      transition: transform .2s; cursor: pointer;
     }
     .kpi-card:hover { transform: translateY(-2px); }
     .kpi-value {
@@ -306,27 +306,27 @@
   <div class="kpi-bar">
     <div class="container">
       <div class="kpi-grid">
-        <div class="kpi-card">
+        <div class="kpi-card" onclick="document.getElementById('project-loan').scrollIntoView({behavior:'smooth'})">
           <div class="kpi-value">97.25%</div>
           <div class="kpi-label">Model Recall</div>
           <div class="kpi-sub">Loan Default Detection</div>
         </div>
-        <div class="kpi-card">
+        <div class="kpi-card" onclick="document.getElementById('torrent').scrollIntoView({behavior:'smooth'})">
           <div class="kpi-value">15%</div>
           <div class="kpi-label">Retention ↑</div>
           <div class="kpi-sub">Customer Analytics</div>
         </div>
-        <div class="kpi-card">
+        <div class="kpi-card" onclick="document.getElementById('torrent').scrollIntoView({behavior:'smooth'})">
           <div class="kpi-value">30%</div>
           <div class="kpi-label">Forecast Accuracy ↑</div>
           <div class="kpi-sub">Demand Forecasting</div>
         </div>
-        <div class="kpi-card">
+        <div class="kpi-card" onclick="document.getElementById('torrent').scrollIntoView({behavior:'smooth'})">
           <div class="kpi-value">40%</div>
           <div class="kpi-label">Reporting Effort ↓</div>
           <div class="kpi-sub">Process Automation</div>
         </div>
-        <div class="kpi-card">
+        <div class="kpi-card" onclick="document.getElementById('torrent').scrollIntoView({behavior:'smooth'})">
           <div class="kpi-value">15%</div>
           <div class="kpi-label">Overdue Accounts ↓</div>
           <div class="kpi-sub">Collections Analysis</div>
@@ -383,7 +383,7 @@
         </div>
       </div>
 
-      <div class="exp-card reveal reveal-delay-1" style="margin-top:24px">
+      <div id="torrent" class="exp-card reveal reveal-delay-1" style="margin-top:24px">
         <div class="exp-header">
           <div>
             <div class="exp-role">Customer & Commercial Analyst</div>
@@ -413,7 +413,7 @@
       <div class="section-title reveal">Featured Analytics Projects <span class="badge">3 Projects</span></div>
       <div class="project-grid">
         <!-- Project 1 -->
-        <div class="project-card reveal reveal-delay-1">
+        <div id="project-loan" class="project-card reveal reveal-delay-1">
           <div class="project-img">
             <img src="https://raw.githubusercontent.com/Piyali-Narnaware/Loan-Default-Prediction/main/loss_curves.png" alt="Loss Curves" style="background:#f8fafc;padding:8px;object-fit:contain">
           </div>
