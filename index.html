@@ -825,15 +825,9 @@
       }
       requestAnimationFrame(update);
     }
-    const counterObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) { animateCounter(entry.target); counterObserver.unobserve(entry.target); }
-      });
-    }, { threshold: 0.3 });
-    document.querySelectorAll('.kpi-counter').forEach(el => {
-      if (el.getBoundingClientRect().top < window.innerHeight) { animateCounter(el); }
-      else { counterObserver.observe(el); }
-    });
+    setTimeout(() => {
+      document.querySelectorAll('.kpi-counter').forEach(el => animateCounter(el));
+    }, 500);
 
     // --- Typewriter Effect ---
     const twEl = document.getElementById('typewriter');
@@ -867,18 +861,12 @@
     });
 
     // --- Skill Bar Animation ---
-    const skillObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.width = entry.target.dataset.width + '%';
-          skillObserver.unobserve(entry.target);
-        }
+    // --- Skill Bar Animation ---
+    setTimeout(() => {
+      document.querySelectorAll('.skill-bar-fill').forEach(el => {
+        el.style.width = el.dataset.width + '%';
       });
-    }, { threshold: 0.3 });
-    document.querySelectorAll('.skill-bar-fill').forEach(el => {
-      if (el.getBoundingClientRect().top < window.innerHeight) { el.style.width = el.dataset.width + '%'; }
-      else { skillObserver.observe(el); }
-    });
+    }, 600);
     document.querySelectorAll('.blur-load').forEach(container => {
       const img = container.querySelector('img');
       if (!img) return;
