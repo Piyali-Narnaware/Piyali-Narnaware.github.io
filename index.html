@@ -257,6 +257,14 @@
     }
     .footer a { color: var(--accent); text-decoration: none; font-weight: 500; }
 
+    /* Scroll Reveal */
+    .reveal { opacity: 0; transform: translateY(40px); transition: opacity .7s ease, transform .7s cubic-bezier(.4,0,.2,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: .1s; }
+    .reveal-delay-2 { transition-delay: .2s; }
+    .reveal-delay-3 { transition-delay: .3s; }
+    .reveal-delay-4 { transition-delay: .4s; }
+
     @media (max-width: 640px) {
       .header-inner { flex-direction: column; text-align: center; }
       .header-links { justify-content: center; }
@@ -330,11 +338,11 @@
   <div class="container">
     <!-- About -->
     <div class="section" id="about">
-      <div class="section-title">About Me</div>
-      <div class="about-card">
+      <div class="section-title reveal">About Me</div>
+      <div class="about-card reveal">
         <p>Business Analytics graduate from the <strong>University of Warwick</strong> with experience in customer analytics, forecasting, KPI reporting and commercial performance analysis across the energy and retail sectors.</p>
         <p style="margin-top:12px">Skilled in translating data into business decisions through SQL, Power BI, Python and stakeholder-focused reporting. Passionate about using analytics to improve customer outcomes, operational performance and commercial growth.</p>
-        <div class="skills-grid">
+        <div class="skills-grid reveal reveal-delay-1">
           <span class="skill-cat">Analytics</span>
           <span class="skill-tag">Customer Analytics</span>
           <span class="skill-tag">Commercial Analytics</span>
@@ -358,8 +366,8 @@
 
     <!-- Experience -->
     <div class="section" id="experience">
-      <div class="section-title">Professional Experience</div>
-      <div class="exp-card">
+      <div class="section-title reveal">Professional Experience</div>
+      <div class="exp-card reveal">
         <div class="exp-header">
           <div>
             <div class="exp-role">Team Leader</div>
@@ -375,7 +383,7 @@
         </div>
       </div>
 
-      <div class="exp-card" style="margin-top:24px">
+      <div class="exp-card reveal reveal-delay-1" style="margin-top:24px">
         <div class="exp-header">
           <div>
             <div class="exp-role">Customer & Commercial Analyst</div>
@@ -402,10 +410,10 @@
 
     <!-- Featured Projects -->
     <div class="section" id="featured">
-      <div class="section-title">Featured Analytics Projects <span class="badge">3 Projects</span></div>
+      <div class="section-title reveal">Featured Analytics Projects <span class="badge">3 Projects</span></div>
       <div class="project-grid">
         <!-- Project 1 -->
-        <div class="project-card">
+        <div class="project-card reveal reveal-delay-1">
           <div class="project-img">
             <img src="https://raw.githubusercontent.com/Piyali-Narnaware/Loan-Default-Prediction/main/loss_curves.png" alt="Loss Curves" style="background:#f8fafc;padding:8px;object-fit:contain">
           </div>
@@ -432,7 +440,7 @@
         </div>
 
         <!-- Project 2 -->
-        <div class="project-card">
+        <div class="project-card reveal reveal-delay-2">
           <div class="project-img">
             <img src="https://raw.githubusercontent.com/Piyali-Narnaware/Coop-Retail-Analysis-25-26/main/images/Executive-Overview.png" alt="Executive Overview" style="object-fit:contain;background:#f8fafc;padding:4px">
           </div>
@@ -452,7 +460,7 @@
         </div>
 
         <!-- Project 3 -->
-        <div class="project-card">
+        <div class="project-card reveal reveal-delay-3">
           <div class="project-img" style="background:#f1f5f9;padding:24px;display:flex;flex-direction:column;gap:8px;font-size:14px;color:#475569;align-items:center;justify-content:center">
             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#2463eb" stroke-width="1.5"><path d="M4 7V4h16v3M4 7v9h16V7M4 7h16"/><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M8 12h8M8 8h8"/></svg>
             <span>Entity-Relationship Diagram</span>
@@ -477,10 +485,10 @@
 
     <!-- Academic & Exploratory Projects -->
     <div class="section" id="academic">
-      <div class="section-title">Academic & Exploratory Projects <span class="badge">3 Projects</span></div>
+      <div class="section-title reveal">Academic & Exploratory Projects <span class="badge">3 Projects</span></div>
       <div class="project-grid">
         <!-- Project 4 -->
-        <div class="project-card">
+        <div class="project-card reveal reveal-delay-1">
           <div class="project-img" style="background:#f3e8ff;display:flex;align-items:center;justify-content:center;color:#7c3aed;font-size:14px;font-weight:500">
             AI Recommendation Engine
           </div>
@@ -500,7 +508,7 @@
         </div>
 
         <!-- Project 5 -->
-        <div class="project-card">
+        <div class="project-card reveal reveal-delay-2">
           <div class="project-img">
             <img src="https://raw.githubusercontent.com/Piyali-Narnaware/London-Low-Income-Household-Analysis/main/yearly_distribution_plot.png" alt="Yearly Distribution" style="object-fit:contain;background:#f8fafc;padding:4px">
           </div>
@@ -520,7 +528,7 @@
         </div>
 
         <!-- Project 6 -->
-        <div class="project-card">
+        <div class="project-card reveal reveal-delay-3">
           <div class="project-img">
             <img src="https://raw.githubusercontent.com/Piyali-Narnaware/London-Bike-Hire-Demand-Analysis-/main/covid_period_comparison.png" alt="COVID Period Comparison" style="object-fit:contain;background:#f8fafc;padding:4px">
           </div>
@@ -548,5 +556,13 @@
       Piyali Narnaware · <a href="https://github.com/Piyali-Narnaware" target="_blank" style="color:var(--accent);text-decoration:none">GitHub</a>
     </div>
   </div>
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) { entry.target.classList.add('visible'); }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
