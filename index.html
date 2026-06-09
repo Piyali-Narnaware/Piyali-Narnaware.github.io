@@ -812,26 +812,28 @@
     });
 
     // --- KPI Counter Animation ---
+    function animateCounter(el) {
+      const target = parseFloat(el.dataset.target);
+      const decimal = parseInt(el.dataset.decimal) || 0;
+      const duration = 1500;
+      const start = performance.now();
+      function update(now) {
+        const t = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - t, 3);
+        el.textContent = (target * eased).toFixed(decimal);
+        if (t < 1) requestAnimationFrame(update);
+      }
+      requestAnimationFrame(update);
+    }
     const counterObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const el = entry.target;
-          const target = parseFloat(el.dataset.target);
-          const decimal = parseInt(el.dataset.decimal) || 0;
-          const duration = 1500;
-          const start = performance.now();
-          function update(now) {
-            const t = Math.min((now - start) / duration, 1);
-            const eased = 1 - Math.pow(1 - t, 3);
-            el.textContent = (target * eased).toFixed(decimal);
-            if (t < 1) requestAnimationFrame(update);
-          }
-          requestAnimationFrame(update);
-          counterObserver.unobserve(el);
-        }
+        if (entry.isIntersecting) { animateCounter(entry.target); counterObserver.unobserve(entry.target); }
       });
-    }, { threshold: 0.5 });
-    document.querySelectorAll('.kpi-counter').forEach(el => counterObserver.observe(el));
+    }, { threshold: 0.3 });
+    document.querySelectorAll('.kpi-counter').forEach(el => {
+      if (el.getBoundingClientRect().top < window.innerHeight) { animateCounter(el); }
+      else { counterObserver.observe(el); }
+    });
 
     // --- Typewriter Effect ---
     const twEl = document.getElementById('typewriter');
@@ -864,7 +866,19 @@
       if (e.key === 'Escape') closeLightbox();
     });
 
-    // --- Blur Load ---
+    // --- Skill Bar Animation ---
+    const skillObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.width = entry.target.dataset.width + '%';
+          skillObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    document.querySelectorAll('.skill-bar-fill').forEach(el => {
+      if (el.getBoundingClientRect().top < window.innerHeight) { el.style.width = el.dataset.width + '%'; }
+      else { skillObserver.observe(el); }
+    });
     document.querySelectorAll('.blur-load').forEach(container => {
       const img = container.querySelector('img');
       if (!img) return;
