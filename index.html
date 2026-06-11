@@ -189,7 +189,7 @@
     }
     .kpi-card:hover { background: var(--accent-light); transform: translateY(-3px); }
     .kpi-value {
-      font-size: 30px; font-weight: 800;
+      font-size: 30px; font-weight: 800; color: var(--accent);
       background: linear-gradient(135deg, var(--accent), var(--accent-3));
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
       background-clip: text; line-height: 1.2; font-variant-numeric: tabular-nums;
@@ -249,11 +249,10 @@
       flex: 1; height: 8px; background: var(--bg-alt); border-radius: 4px; overflow: hidden;
     }
     .skill-bar-fill {
-      height: 100%; border-radius: 4px; width: 0;
+      height: 100%; border-radius: 4px;
       background: linear-gradient(90deg, var(--accent-2), var(--accent-3));
       transition: width 1s cubic-bezier(.4,0,.2,1);
     }
-    .skill-bar-fill.visible { }
     .skill-bar-pct { font-size: 12px; color: var(--text-secondary); width: 32px; text-align: right; font-weight: 500; }
 
     /* Experience */
@@ -497,27 +496,27 @@
     <div class="container">
       <div class="kpi-grid">
         <div class="kpi-card" onclick="document.getElementById('project-loan').scrollIntoView({behavior:'smooth'})">
-          <div class="kpi-value"><span class="kpi-counter" data-target="97.25" data-decimal="2">0</span>%</div>
+          <div class="kpi-value">97.25%</div>
           <div class="kpi-label">Model Recall</div>
           <div class="kpi-sub">Loan Default Detection</div>
         </div>
         <div class="kpi-card" onclick="document.getElementById('torrent').scrollIntoView({behavior:'smooth'})">
-          <div class="kpi-value"><span class="kpi-counter" data-target="15">0</span>%</div>
+          <div class="kpi-value">15%</div>
           <div class="kpi-label">Retention ↑</div>
           <div class="kpi-sub">Customer Analytics</div>
         </div>
         <div class="kpi-card" onclick="document.getElementById('torrent').scrollIntoView({behavior:'smooth'})">
-          <div class="kpi-value"><span class="kpi-counter" data-target="30">0</span>%</div>
+          <div class="kpi-value">30%</div>
           <div class="kpi-label">Forecast Accuracy ↑</div>
           <div class="kpi-sub">Demand Forecasting</div>
         </div>
         <div class="kpi-card" onclick="document.getElementById('torrent').scrollIntoView({behavior:'smooth'})">
-          <div class="kpi-value"><span class="kpi-counter" data-target="40">0</span>%</div>
+          <div class="kpi-value">40%</div>
           <div class="kpi-label">Reporting Effort ↓</div>
           <div class="kpi-sub">Process Automation</div>
         </div>
         <div class="kpi-card" onclick="document.getElementById('torrent').scrollIntoView({behavior:'smooth'})">
-          <div class="kpi-value"><span class="kpi-counter" data-target="15">0</span>%</div>
+          <div class="kpi-value">15%</div>
           <div class="kpi-label">Overdue Accounts ↓</div>
           <div class="kpi-sub">Collections Analysis</div>
         </div>
@@ -535,26 +534,26 @@
         <div class="skills-bars reveal reveal-delay-1">
           <div class="skill-bar-group">
             <div class="skill-bar-label">Analytics</div>
-            <div class="skill-bar-row"><span class="skill-bar-name">Customer Analytics</span><div class="skill-bar-track"><div class="skill-bar-fill" data-width="92"></div></div><span class="skill-bar-pct">92%</span></div>
-            <div class="skill-bar-row"><span class="skill-bar-name">Commercial Analytics</span><div class="skill-bar-track"><div class="skill-bar-fill" data-width="88"></div></div><span class="skill-bar-pct">88%</span></div>
-            <div class="skill-bar-row"><span class="skill-bar-name">Forecasting</span><div class="skill-bar-track"><div class="skill-bar-fill" data-width="85"></div></div><span class="skill-bar-pct">85%</span></div>
-            <div class="skill-bar-row"><span class="skill-bar-name">KPI Reporting</span><div class="skill-bar-track"><div class="skill-bar-fill" data-width="90"></div></div><span class="skill-bar-pct">90%</span></div>
-            <div class="skill-bar-row"><span class="skill-bar-name">Data Visualisation</span><div class="skill-bar-track"><div class="skill-bar-fill" data-width="87"></div></div><span class="skill-bar-pct">87%</span></div>
+            <div class="skill-bar-row"><span class="skill-bar-name">Customer Analytics</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:92%"></div></div><span class="skill-bar-pct">92%</span></div>
+            <div class="skill-bar-row"><span class="skill-bar-name">Commercial Analytics</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:88%"></div></div><span class="skill-bar-pct">88%</span></div>
+            <div class="skill-bar-row"><span class="skill-bar-name">Forecasting</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:85%"></div></div><span class="skill-bar-pct">85%</span></div>
+            <div class="skill-bar-row"><span class="skill-bar-name">KPI Reporting</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:90%"></div></div><span class="skill-bar-pct">90%</span></div>
+            <div class="skill-bar-row"><span class="skill-bar-name">Data Visualisation</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:87%"></div></div><span class="skill-bar-pct">87%</span></div>
           </div>
           <div class="skill-bar-group">
             <div class="skill-bar-label">Tools</div>
-            <div class="skill-bar-row"><span class="skill-bar-name">SQL</span><div class="skill-bar-track"><div class="skill-bar-fill" data-width="90"></div></div><span class="skill-bar-pct">90%</span></div>
-            <div class="skill-bar-row"><span class="skill-bar-name">Power BI</span><div class="skill-bar-track"><div class="skill-bar-fill" data-width="88"></div></div><span class="skill-bar-pct">88%</span></div>
-            <div class="skill-bar-row"><span class="skill-bar-name">Python</span><div class="skill-bar-track"><div class="skill-bar-fill" data-width="85"></div></div><span class="skill-bar-pct">85%</span></div>
-            <div class="skill-bar-row"><span class="skill-bar-name">Excel</span><div class="skill-bar-track"><div class="skill-bar-fill" data-width="92"></div></div><span class="skill-bar-pct">92%</span></div>
-            <div class="skill-bar-row"><span class="skill-bar-name">SAP S/4HANA</span><div class="skill-bar-track"><div class="skill-bar-fill" data-width="80"></div></div><span class="skill-bar-pct">80%</span></div>
-            <div class="skill-bar-row"><span class="skill-bar-name">R</span><div class="skill-bar-track"><div class="skill-bar-fill" data-width="75"></div></div><span class="skill-bar-pct">75%</span></div>
+            <div class="skill-bar-row"><span class="skill-bar-name">SQL</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:90%"></div></div><span class="skill-bar-pct">90%</span></div>
+            <div class="skill-bar-row"><span class="skill-bar-name">Power BI</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:88%"></div></div><span class="skill-bar-pct">88%</span></div>
+            <div class="skill-bar-row"><span class="skill-bar-name">Python</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:85%"></div></div><span class="skill-bar-pct">85%</span></div>
+            <div class="skill-bar-row"><span class="skill-bar-name">Excel</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:92%"></div></div><span class="skill-bar-pct">92%</span></div>
+            <div class="skill-bar-row"><span class="skill-bar-name">SAP S/4HANA</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:80%"></div></div><span class="skill-bar-pct">80%</span></div>
+            <div class="skill-bar-row"><span class="skill-bar-name">R</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:75%"></div></div><span class="skill-bar-pct">75%</span></div>
           </div>
           <div class="skill-bar-group">
             <div class="skill-bar-label">Machine Learning</div>
-            <div class="skill-bar-row"><span class="skill-bar-name">Predictive Modelling</span><div class="skill-bar-track"><div class="skill-bar-fill" data-width="83"></div></div><span class="skill-bar-pct">83%</span></div>
-            <div class="skill-bar-row"><span class="skill-bar-name">TensorFlow</span><div class="skill-bar-track"><div class="skill-bar-fill" data-width="78"></div></div><span class="skill-bar-pct">78%</span></div>
-            <div class="skill-bar-row"><span class="skill-bar-name">scikit-learn</span><div class="skill-bar-track"><div class="skill-bar-fill" data-width="82"></div></div><span class="skill-bar-pct">82%</span></div>
+            <div class="skill-bar-row"><span class="skill-bar-name">Predictive Modelling</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:83%"></div></div><span class="skill-bar-pct">83%</span></div>
+            <div class="skill-bar-row"><span class="skill-bar-name">TensorFlow</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:78%"></div></div><span class="skill-bar-pct">78%</span></div>
+            <div class="skill-bar-row"><span class="skill-bar-name">scikit-learn</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:82%"></div></div><span class="skill-bar-pct">82%</span></div>
           </div>
         </div>
       </div>
@@ -624,7 +623,7 @@
           <div class="project-body">
             <div class="project-tag featured">Predictive Analytics</div>
             <div class="project-title">Predictive Risk Analytics for Loan Default Detection</div>
-            <div class="project-desc">Deep learning binary classifier predicting loan default risk using TensorFlow/Keras with SMOTEENN for class imbalance.</div>
+            <div class="project-desc">Deep learning binary classifier predicting loan default risk using TensorFlow with SMOTEENN for class imbalance.</div>
             <div class="project-metrics">
               <span class="project-metric green">Recall: 97.25%</span>
               <span class="project-metric blue">Accuracy: 93.1%</span>
@@ -811,23 +810,7 @@
       themeToggle.textContent = dark ? '☀️' : '🌙';
     });
 
-    // --- KPI Counter Animation ---
-    function animateCounter(el) {
-      const target = parseFloat(el.dataset.target);
-      const decimal = parseInt(el.dataset.decimal) || 0;
-      const duration = 1500;
-      const start = performance.now();
-      function update(now) {
-        const t = Math.min((now - start) / duration, 1);
-        const eased = 1 - Math.pow(1 - t, 3);
-        el.textContent = (target * eased).toFixed(decimal);
-        if (t < 1) requestAnimationFrame(update);
-      }
-      requestAnimationFrame(update);
-    }
-    setTimeout(() => {
-      document.querySelectorAll('.kpi-counter').forEach(el => animateCounter(el));
-    }, 500);
+    // --- Typewriter Effect ---
 
     // --- Typewriter Effect ---
     const twEl = document.getElementById('typewriter');
@@ -861,12 +844,7 @@
     });
 
     // --- Skill Bar Animation ---
-    // --- Skill Bar Animation ---
-    setTimeout(() => {
-      document.querySelectorAll('.skill-bar-fill').forEach(el => {
-        el.style.width = el.dataset.width + '%';
-      });
-    }, 600);
+    // --- Blur Load ---
     document.querySelectorAll('.blur-load').forEach(container => {
       const img = container.querySelector('img');
       if (!img) return;
