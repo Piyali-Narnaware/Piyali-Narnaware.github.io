@@ -236,24 +236,23 @@
     }
     .about-card p { color: var(--text-secondary); max-width: 800px; font-size: 15px; }
 
-    /* Skill Bars */
-    .skills-bars { margin-top: 24px; display: grid; gap: 16px; }
-    .skill-bar-group { }
-    .skill-bar-label {
+    /* Skills Tags */
+    .skills-grid {
+      display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px;
+    }
+    .skill-tag {
+      padding: 7px 16px; border-radius: 20px; font-size: 13px; font-weight: 500;
+      background: linear-gradient(135deg, var(--accent-light), #dce8fb);
+      color: var(--accent-dark); border: 1px solid rgba(26,93,231,0.1);
+      transition: all .2s;
+    }
+    .skill-tag:hover { transform: translateY(-1px); box-shadow: 0 4px 12px var(--accent-glow); }
+    .skill-cat {
       font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
-      color: var(--accent); margin-bottom: 10px;
+      color: var(--accent); width: 100%; margin-top: 16px; padding-top: 8px;
+      border-top: 1px solid var(--border);
     }
-    .skill-bar-row { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
-    .skill-bar-name { font-size: 13px; font-weight: 500; color: var(--text); width: 130px; flex-shrink: 0; }
-    .skill-bar-track {
-      flex: 1; height: 8px; background: var(--bg-alt); border-radius: 4px; overflow: hidden;
-    }
-    .skill-bar-fill {
-      height: 100%; border-radius: 4px;
-      background: linear-gradient(90deg, var(--accent-2), var(--accent-3));
-      transition: width 1s cubic-bezier(.4,0,.2,1);
-    }
-    .skill-bar-pct { font-size: 12px; color: var(--text-secondary); width: 32px; text-align: right; font-weight: 500; }
+    .skill-cat:first-of-type { margin-top: 0; border-top: none; padding-top: 0; }
 
     /* Experience */
     .exp-card {
@@ -440,7 +439,6 @@
       .kpi-grid { grid-template-columns: repeat(2, 1fr); }
       .section { padding: 40px 0; }
       .nav-dots { display: none; }
-      .skill-bar-name { width: 90px; font-size: 12px; }
       .theme-toggle { top: 12px; right: 12px; width: 36px; height: 36px; font-size: 16px; }
     }
   </style>
@@ -479,7 +477,6 @@
           </div>
           <div class="header-cta">
             <a href="#featured" class="btn-primary">View Projects</a>
-            <a href="mailto:piyalinarnaware@gmail.com" class="btn-outline">Download Resume</a>
           </div>
           <div class="header-links">
             <a href="https://github.com/Piyali-Narnaware" target="_blank"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub</a>
@@ -531,30 +528,24 @@
       <div class="about-card reveal">
         <p>Business Analytics graduate from the <strong>University of Warwick</strong> with experience in customer analytics, forecasting, KPI reporting and commercial performance analysis across the energy and retail sectors.</p>
         <p style="margin-top:12px">Skilled in translating data into business decisions through SQL, Power BI, Python and stakeholder-focused reporting. Passionate about using analytics to improve customer outcomes, operational performance and commercial growth.</p>
-        <div class="skills-bars reveal reveal-delay-1">
-          <div class="skill-bar-group">
-            <div class="skill-bar-label">Analytics</div>
-            <div class="skill-bar-row"><span class="skill-bar-name">Customer Analytics</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:92%"></div></div><span class="skill-bar-pct">92%</span></div>
-            <div class="skill-bar-row"><span class="skill-bar-name">Commercial Analytics</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:88%"></div></div><span class="skill-bar-pct">88%</span></div>
-            <div class="skill-bar-row"><span class="skill-bar-name">Forecasting</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:85%"></div></div><span class="skill-bar-pct">85%</span></div>
-            <div class="skill-bar-row"><span class="skill-bar-name">KPI Reporting</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:90%"></div></div><span class="skill-bar-pct">90%</span></div>
-            <div class="skill-bar-row"><span class="skill-bar-name">Data Visualisation</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:87%"></div></div><span class="skill-bar-pct">87%</span></div>
-          </div>
-          <div class="skill-bar-group">
-            <div class="skill-bar-label">Tools</div>
-            <div class="skill-bar-row"><span class="skill-bar-name">SQL</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:90%"></div></div><span class="skill-bar-pct">90%</span></div>
-            <div class="skill-bar-row"><span class="skill-bar-name">Power BI</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:88%"></div></div><span class="skill-bar-pct">88%</span></div>
-            <div class="skill-bar-row"><span class="skill-bar-name">Python</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:85%"></div></div><span class="skill-bar-pct">85%</span></div>
-            <div class="skill-bar-row"><span class="skill-bar-name">Excel</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:92%"></div></div><span class="skill-bar-pct">92%</span></div>
-            <div class="skill-bar-row"><span class="skill-bar-name">SAP S/4HANA</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:80%"></div></div><span class="skill-bar-pct">80%</span></div>
-            <div class="skill-bar-row"><span class="skill-bar-name">R</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:75%"></div></div><span class="skill-bar-pct">75%</span></div>
-          </div>
-          <div class="skill-bar-group">
-            <div class="skill-bar-label">Machine Learning</div>
-            <div class="skill-bar-row"><span class="skill-bar-name">Predictive Modelling</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:83%"></div></div><span class="skill-bar-pct">83%</span></div>
-            <div class="skill-bar-row"><span class="skill-bar-name">TensorFlow</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:78%"></div></div><span class="skill-bar-pct">78%</span></div>
-            <div class="skill-bar-row"><span class="skill-bar-name">scikit-learn</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:82%"></div></div><span class="skill-bar-pct">82%</span></div>
-          </div>
+        <div class="skills-grid reveal reveal-delay-1">
+          <span class="skill-cat">Analytics</span>
+          <span class="skill-tag">Customer Analytics</span>
+          <span class="skill-tag">Commercial Analytics</span>
+          <span class="skill-tag">Forecasting</span>
+          <span class="skill-tag">KPI Reporting</span>
+          <span class="skill-tag">Data Visualisation</span>
+          <span class="skill-cat">Tools</span>
+          <span class="skill-tag">SQL</span>
+          <span class="skill-tag">Power BI</span>
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">Excel</span>
+          <span class="skill-tag">SAP S/4HANA</span>
+          <span class="skill-tag">R</span>
+          <span class="skill-cat">Machine Learning</span>
+          <span class="skill-tag">Predictive Modelling</span>
+          <span class="skill-tag">TensorFlow</span>
+          <span class="skill-tag">scikit-learn</span>
         </div>
       </div>
     </div>
