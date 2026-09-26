@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://piyali-narnaware.github.io/sitemap.xml
