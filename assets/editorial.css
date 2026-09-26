@@ -12,3 +12,5 @@ body{font-family:'Segoe UI',Arial,sans-serif}h1,h2,h3{font-weight:600}.container
 .hero:before{background-image:url("data-field.svg");background-size:cover;background-position:center;opacity:.55}
 .hero-feature{box-shadow:16px 20px 0 #081d303d}
 .hero-feature:hover{box-shadow:10px 22px 0 #081d303d}
+
+#contact .section-title{color:#1a3c32}
